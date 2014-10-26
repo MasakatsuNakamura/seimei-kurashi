@@ -17,8 +17,7 @@ $authcode = rand(10000, 99999);
 <head>
 <meta charset="UTF-8">
 <LINK REL="SHORTCUT ICON" HREF="favicon.ico">
-<meta name="description" content="あじあ姓名うらないへようこそ！赤ちゃんの名まえをつけたり（選名）、じぶんの運勢をうらなったり、どしどし使ってね！">
-<meta name="keywords" content="<?php echo $seimei->sei ?> <?php echo $seimei->mei ?> 翁 占い 姓名判断 姓名うらない 姓名占い 命名 選名 名前 新生児 赤ちゃん 出産準備 改名 DQNネーム 改姓 結婚相談 芸名 雅号 会社名 人事相談 熊崎式 だいぶつ あじあ">
+<meta name="description" content="暮らしの姓名判断へようこそ！赤ちゃんの名まえをつけたり（選名）、じぶんの運勢をうらなったり、どしどし使ってね！">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>あじあ姓名うらない</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +31,7 @@ $authcode = rand(10000, 99999);
 <body>
 	<div data-role="page" id="top" data-theme="a">
 		<div data-role="header">
-			<h1>あじあ姓名うらない <span class="ui-mini"><a href="#mit-lisense">Copyright &copy; 2014 だいぶつ</a></span></h1>
+			<h1>暮らしの姓名判断 <span class="ui-mini"><a href="#mit-lisense">Copyright &copy; 2014 だいぶつ</a></span></h1>
 			<a href="/#top" data-icon="home" data-ajax="false">ホーム</a>
 			<a href="" data-icon="mail" class="ui-disabled">問い合わせ</a>
 		</div>
@@ -67,12 +66,12 @@ $message = new SendGrid\Email();
 $message->
 	addTo($_POST['email'])->
 	setFrom('info@seimei.asia')->
-	setSubject('[あじあ姓名うらない]認証コード')->
+	setSubject('[暮らしの姓名判断]認証コード')->
 	setText('下記の認証コードをWeb画面に入力してください。' . PHP_EOL . PHP_EOL . 
 			'　認証コード: ' . $authcode . PHP_EOL . PHP_EOL . 
 			'このメールアドレスは送信専用です。このメールに返信しても届きませんのでご注意ください。' . PHP_EOL . PHP_EOL .
 			'--' . PHP_EOL .
-			'あじあ姓名うらない' . PHP_EOL .
+			'暮らしの姓名判断' . PHP_EOL .
 			'http://www.seimei.asia/'
 	);
 $response = $sendgrid->send($message);
