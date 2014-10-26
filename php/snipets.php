@@ -72,8 +72,8 @@ function seimeiWebHeader() {
 ?>
 <head>
 	<meta charset="UTF-8">
-	<LINK REL="SHORTCUT ICON" HREF="favicon.ico"> 
-	<meta name="description" content="暮らしの姓名判断へようこそ！赤ちゃんの名まえをつけたり（選名）、キラキラネームの改名案を探したり、じぶんの運勢をうらなうなど、どしどし使ってね！">
+	<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+	<meta name="description" content="暮らしの姓名判断へようこそ！このサイトは、山本式姓名判断のノウハウを知り尽くしただいぶつが、無料で姓名判断・選名・改名アドバイスを行っています。赤ちゃんの名まえをつけたり（選名）、キラキラネームの改名案を探したり、じぶんの運勢を占うなど、ご活用ください。">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>暮らしの姓名判断</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -102,13 +102,13 @@ function seimeiBody($seimei) {
 			<?php
 			echo $seimei->grand_score() . "点</p><p>";
 			if ($seimei->grand_score() >= 90) {
-				echo 'すばらしいお名前をお持ちですね！ご両親に感謝するべきです。お子様の選名には、下記の名前を参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼も受け付けております。';
+				echo 'すばらしいお名前をお持ちですね！ご両親に感謝するべきです。お子様の選名には、選名・改名アドバイザーの名前を参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼(無償)も受け付けております。';
 			} elseif ($seimei->grand_score() >= 75) {
-				echo '現在かなり良い名前を持っておられますので、改名の必要はありません。お子様の選名には、下記の名前を参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼も受け付けております。';
+				echo '現在かなり良い名前を持っておられますので、改名の必要はありません。お子様の選名には、選名・改名アドバイザーの名前を参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼(無償)も受け付けております。';
 			} elseif ($seimei->grand_score() >= 50) {
-				echo '現在のお名前もそれほど悪くはありませんので、今すぐ改名の必要はありませんが、可能性としてご考慮いただいてもかまわないレベルです。お子様の選名には、下記の名前を参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼も受け付けております。';
+				echo '現在のお名前もそれほど悪くはありませんので、今すぐ改名の必要はありませんが、可能性としてご考慮いただいてもかまわないレベルです。お子様の選名には、選名・改名アドバイザーの名前を参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼(無償)も受け付けております。';
 			} else {
-				echo 'あなたのお名前は、当姓名判断の基準では改名の必要があるほど、運勢が弱い画数になっています。下記の名前を参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼も受け付けております。';
+				echo 'あなたのお名前は、当姓名判断の基準では改名の必要があるほど、運勢が弱い画数になっています。選名・改名アドバイザーを参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼(無償)も受け付けております。';
 			}
 			?>
 		</p>
@@ -133,7 +133,7 @@ function seimeiBody($seimei) {
 		<p><?php echo $seimei->gaikaku . "画：" . $seimei->reii_description($seimei->gaikaku) .  " (" . $seimei->gaikaku_score . "点)"; ?></p>
 		<p style="color:blue;font-weight:bold;">対人関係および、家族・夫婦関係、友達関係など、外交面をあらわします。</p>
 		<h3>人画の下一桁(性格)</h3>
-		<p><?php echo $seimei->seikaku_description() ?></h3>
+		<p><?php echo $seimei->jinshimo . "画：" . $seimei->seikaku_description() ?></h3>
 		<p style="color:blue;font-weight:bold;">外面から見た性格を現しています。他人から自分がどう見えているのかの参考にしてください。</p>
 		<h3>健康運</h3>
 		<p><?php echo $seimei->kenkou_score(1) . "。三才の配置：" . $seimei->kenkou_description(); ?></p>
@@ -154,7 +154,7 @@ function seimeiBody($seimei) {
 				array_push($newnames, "<span style='font-weight:bold;font-size:x-large;color:blue;'>" . $name[0] . "</span> (" . $name[1] . ")");
 			}
 			if (count($newnames) == 0) {
-				echo '申し訳ありません、データベースに名前の候補がありません。問い合わせフォームからお問い合わせください。';
+				echo '申し訳ありません、データベースに名前の候補がありません。<a href="#query">問い合わせフォーム</a>からお問い合わせください(無償)。';
 			} else {
 				echo implode("、", $newnames);
 			}
@@ -170,7 +170,7 @@ function seimeiBody($seimei) {
 				array_push($newnames, "<span style='font-weight:bold;font-size:x-large;color:red;'>" . $name[0] . "</span> (" . $name[1] . ")");
 			}
 			if (count($newnames) == 0) {
-				echo '申し訳ありません、データベースに名前の候補がありません。問い合わせフォームからお問い合わせください。';
+				echo '申し訳ありません、データベースに名前の候補がありません。<a href="#query">問い合わせフォーム</a>からお問い合わせください(無償)。';
 			} else {
 				echo implode("、", $newnames);
 			}
@@ -218,11 +218,9 @@ function seimeiWebForm() {
 					<label for="sex-3">それ以外 (Others)</label>
 				</fieldset>
 			</div>
-			<input type="submit" value="運勢をうらなう" data-role="button" />
+			<input type="submit" value="姓名判断" data-role="button" />
 		</form>
 		<p><a href="#mit-lisense">Copyright &copy; 2014 だいぶつ</a></p>
-		<h2>Facebookアプリ公開中！</h2>
-		<p><a href="https://apps.facebook.com/seimei-asia/">Facebookアプリはこちら</a>。</p>
 		<h2>気に入ったらシェアをお願いします！</h2>
 		<?php ninjaTools(); ?>
 		<a href="#setsumei" data-role="button">暮らしの姓名判断について</a>
@@ -248,7 +246,7 @@ function seimeiWebForm() {
 			名前の変更には、家庭裁判所に対して「名の変更許可の申し立て」を行います。<br>
 			これには「正当な事由」が必要とされていますが、「珍奇な名、外国人に紛らわしい名又は難解、難読の文字を用いた名で社会生活上甚だしく支障のあること」という要件を満たせば「正当な事由」にあたるという、最高裁事務局の見解があります。<br>
 			さあ、<a href="#top">姓名判断</a>で改名にチャレンジしてみてください。
-			もしいい名前が見つからなかった場合<a href="#query">問い合わせフォーム</a>からお問い合わせください。
+			もしいい名前が見つからなかった場合<a href="#query">問い合わせフォーム</a>からお問い合わせください(無償)。
 		</p>
 	</div>
 	<div data-role='footer' data-position='fixed'>
@@ -321,7 +319,7 @@ function errorKanji($kanji) {
 		<p>次の文字はデータベースに画数が登録されていません：<?php echo implode("、", $kanji)?></p>
 		<ul>
 		<li>このアプリは漢字以外の文字には対応していません。</li>
-		<li>もし、漢字を入力してこの画面が表示された場合、<a href="#query">問い合わせフォーム</a>よりお問い合わせいただければ、データベースへの登録を検討いたします。</li>
+		<li>もし、漢字を入力してこの画面が表示された場合、<a href="#query">問い合わせフォーム</a>よりお問い合わせいただければ、データベースへの登録を検討いたします(無償)。</li>
 		</ul>
 	</div>
 	<div data-role='footer' data-position='fixed'>
