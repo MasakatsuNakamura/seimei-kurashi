@@ -41,13 +41,13 @@ require 'vendor/autoload.php';
 <body>
 <?php
 if (hash("haval160,4", $_POST["authcode"]) == $_POST["authcode-hash"]) {
-	$sendgrid = new SendGrid('app26677709@heroku.com', 'xec1eqoo');
+	$sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'), getenv('SENDGRID_PASSWORD'));
 	$message = new SendGrid\Email();
 	$message->
 		addTo('nakamuramasakatsu+heroku@gmail.com')->
 		setFrom($_POST['email'])->
-		setSubject('[あじあ姓名うらない]' . $_POST['subject'])->
-		setText('あじあ姓名うらないに問い合わせがありました。' . PHP_EOL . PHP_EOL . 
+		setSubject('[暮らしの姓名判断]' . $_POST['subject'])->
+		setText('暮らしの姓名判断に問い合わせがありました。' . PHP_EOL . PHP_EOL . 
 				'IPアドレス: ' . getClientIp() . PHP_EOL . 
 				'サーバー時刻: ' . date('c') . PHP_EOL . PHP_EOL .
 				'メールアドレス: ' . $_POST['email'] . PHP_EOL .

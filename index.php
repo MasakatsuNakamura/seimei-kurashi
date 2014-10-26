@@ -1,10 +1,10 @@
 <?php
-#if ($_SERVER["SERVER_NAME"] != "seimei.kurashi.asia") {
-#	header("HTTP/1.1 301 Moved Permanently");
-#	header("Location: http://seimei.kurashi.asia" . $_SERVER[REQUEST_URI]);
-#} else {
+if ($_SERVER["SERVER_NAME"] == "seimei-asia.herokuapp.com") {
+	header("HTTP/1.1 301 Moved Permanently");
+	header("Location: http://seimei.kurashi.asia" . $_SERVER[REQUEST_URI]);
+} else {
 	header('Content-type: text/html; charset=utf-8;');
-#}
+}
 
 date_default_timezone_set('Asia/Tokyo');
 
