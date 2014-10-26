@@ -98,8 +98,9 @@ function seimeiBody($seimei) {
 	<div data-role="content">
 		<h2><?php echo $seimei->sei . " " . $seimei->mei ?>さんの運勢</h2>
 		<?php fbLike(); ?>
-		<p>
+		<p style='font-weight:bold;'>総合得点：
 			<?php
+			echo $seimei->grand_score() . "点</p><p>";
 			if ($seimei->grand_score() >= 90) {
 				echo 'すばらしいお名前をお持ちですね！ご両親に感謝するべきです。お子様の選名には、下記の名前を参考にしてください。もし気に入った名前がない場合、問い合わせフォームより選名依頼も受け付けております。';
 			} elseif ($seimei->grand_score() >= 75) {
@@ -125,25 +126,24 @@ function seimeiBody($seimei) {
 			"&d=" . ($seimei->soukaku_score * 0.5 + $seimei->jinkaku_score * 0.5) . 
 			"&e=" . $seimei->grand_score(); ?>">
 		</div>
-		<h2><?php echo $seimei->sei . " " . $seimei->mei ?>さんの運勢(詳細)</h2>
-		<h3>人画 <?php echo $seimei->jinkaku . "画 (" . $seimei->jinkaku_score . "点)" ?></h3>
-		<p style="color:blue;font-weight:bold;">基礎運。一生の運勢を司ります。結婚により姓が変わると基礎運も変化しますが、この場合中年以降に強く現れます。</p>
-		<p><?php echo $seimei->jinkaku . "画:" . $seimei->reii_description($seimei->jinkaku) . " (" . $seimei->jinkaku_score . "点)" ?></p>
-		<h3>外画 <?php echo $seimei->gaikaku . "画 (" . $seimei->gaikaku_score . "点)" ?></h3>
-		<p style="color:blue;font-weight:bold;">対人運。対人関係および、家族・夫婦関係、友達関係など、外交面をあらわします。</p>
-		<p><?php echo $seimei->gaikaku . "画：" . $seimei->reii_description($seimei->gaikaku) . " (" . $seimei->gaikaku_score . "点)" ?></p>
-		<h3>人画の下一桁 <?php echo $seimei->jinshimo . "画" ?></h3>
-		<p style="color:blue;font-weight:bold;">性格。外面から見た性格を現しています。他人から自分がどう見えているのかの参考にしてください。</p>
-		<p><?php echo $seimei->jinshimo . "画：" . $seimei->seikaku_description() ?></p>
-		<h3>健康運 (<?php echo $seimei->kenkou_score(1); ?>)</h3>
+		<h3>人画(基礎運)</h3>
+		<p><?php echo $seimei->jinkaku . "画：" . $seimei->reii_description($seimei->jinkaku) .  " (" . $seimei->jinkaku_score . "点)"; ?></p>
+		<p style="color:blue;font-weight:bold;">一生の運勢を司ります。結婚により姓が変わると基礎運も変化しますが、この場合中年以降に強く現れます。</p>
+		<h3>外画(対人運)</h3>
+		<p><?php echo $seimei->gaikaku . "画：" . $seimei->reii_description($seimei->gaikaku) .  " (" . $seimei->gaikaku_score . "点)"; ?></p>
+		<p style="color:blue;font-weight:bold;">対人関係および、家族・夫婦関係、友達関係など、外交面をあらわします。</p>
+		<h3>人画の下一桁(性格)</h3>
+		<p><?php echo $seimei->seikaku_description() ?></h3>
+		<p style="color:blue;font-weight:bold;">外面から見た性格を現しています。他人から自分がどう見えているのかの参考にしてください。</p>
+		<h3>健康運</h3>
+		<p><?php echo $seimei->kenkou_score(1) . "。三才の配置：" . $seimei->kenkou_description(); ?></p>
 		<p style="color:blue;font-weight:bold;">健康運は三才の配置により決定します。吉数揃いの姓名も、健康に恵まれなければ活かされません。他の画数と合わせて判断してください。</p>
-		<p>三才の配置：<?php echo $seimei->kenkou_description(); ?></p>
-		<h3>天画 <?php echo $seimei->tenkaku . "画 (" . $seimei->tenkaku_score . "点)" ?></h3>
-		<p style="color:blue;font-weight:bold;">若年期の基礎運。幼少年期の運勢を支配し、青年期まで強くあらわれます。</p>
-		<p><?php echo $seimei->tenkaku . "画：" . $seimei->reii_description($seimei->tenkaku) . " (" . $seimei->tenkaku_score . "点)" ?></p>
-		<h3>総画 <?php echo $seimei->soukaku . "画 (" . $seimei->soukaku_score . "点)" ?></h3>
-		<p style="color:blue;font-weight:bold;">晩年運。50歳前後からの運勢を支配します。ただし、基礎運の影響も残ります。</span><br>
-		<p><?php echo $seimei->soukaku . "画：" . $seimei->reii_description($seimei->soukaku) . " (" . $seimei->soukaku_score . "点)" ?></p>
+		<h3>天画(若年期の基礎運)</h3>
+		<p><?php echo $seimei->tenkaku . "画：" . $seimei->reii_description($seimei->tenkaku) .  " (" . $seimei->tenkaku_score . "点)"; ?></p>
+		<p style="color:blue;font-weight:bold;">幼少年期の運勢を支配し、青年期まで強くあらわれます。</p>
+		<h3>総画(晩年運)</h3>
+		<p><?php echo $seimei->soukaku . "画：" . $seimei->reii_description($seimei->soukaku) .  " (" . $seimei->soukaku_score . "点)"; ?></p>
+		<p style="color:blue;font-weight:bold;">50歳前後からの運勢を支配します。ただし、基礎運の影響も残ります。</span><br>
 		<h2>命名・改名アドバイザー</h2>
 		<div data-role="collapsible" data-collapsed="true">
 			<h3>男子（男性）の場合</h3>
@@ -197,8 +197,7 @@ function seimeiWebForm() {
 	</div>
 	<div data-role="content">
 		<?php fbLike(); ?>
-		<h2>姓名から運勢を判定します！</h2>
-		<p>苗字と名前、性別を入力してね！</p>
+		<p>山本式姓名判断のノウハウを研究し尽くしただいぶつが、無料で姓名判断・選名アドバイスを行います。</p>
 		<form method="POST" data-ajax="false" action="./">
 			<div data-role="fieldcontain">
 				<label for="sei">苗字 (Last Name)</label>
