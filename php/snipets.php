@@ -207,6 +207,7 @@ function seimeiWebForm() {
 	<div data-role="content">
 		<?php fbLike(); ?>
 		<p>山本式姓名判断のノウハウを研究し尽くしただいぶつが、無料で姓名判断・選名アドバイスを行います。</p>
+		<p>※ 名前は、日本語で入力してください。アルファベットや数字は使えません。外国姓・名の方はカタカナで入力してください。</p>
 		<form method="POST" data-ajax="false" action="./">
 			<div data-role="fieldcontain">
 				<label for="sei">苗字 (Last Name)</label>
@@ -272,7 +273,7 @@ function seimeiWebForm() {
 	</div>
 	<div data-role='content'>
 		<h2>暮らしの姓名判断について</h2>
-		<p style="font-weight:bold;line-height:180%;">
+		<p style="line-height:180%;">
 			姓名判断の方式はすでに確立されています。したがって、それに基づいてよい名前を考えるなどというのはとても簡単なことなのです。<br>
 			多くの姓名判断家が、そのノウハウを秘匿にし、高額な報酬を目当てに命名サービスを行っている現状を、だいぶつは憂えています。<br>
 			<span style="color:red">こんな、本来タダであるべき命名サービスに高い金を払う必要はありません！</span><br><br>
