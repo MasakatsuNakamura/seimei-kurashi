@@ -18,7 +18,7 @@ function googleAnalytics() {
 function googleAdsense() {
 ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- あじあ姓名うらない -->
+<!-- 暮らしの姓名判断 -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:320px;height:100px"
      data-ad-client="ca-pub-0413343113584981"
@@ -91,7 +91,7 @@ function seimeiWebHeader() {
 function seimeiBody($seimei) {
 	$meimei = $seimei->meimei();
 ?>
-<div data-role="page" id="kantei" data-theme="a">
+<div data-role="page" id="kantei">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>
@@ -128,24 +128,31 @@ function seimeiBody($seimei) {
 			"&d=" . ($seimei->soukaku_score * 0.5 + $seimei->jinkaku_score * 0.5) . 
 			"&e=" . $seimei->grand_score(); ?>">
 		</div>
+		<hr />
 		<h3>人画(基礎運)</h3>
 		<p><?php echo $seimei->jinkaku . "画：" . $seimei->reii_description($seimei->jinkaku) .  " (" . $seimei->jinkaku_score . "点)"; ?></p>
-		<p style="color:blue;font-weight:bold;">一生の運勢を司ります。結婚により姓が変わると基礎運も変化しますが、この場合中年以降に強く現れます。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">一生の運勢を司ります。結婚により姓が変わると基礎運も変化しますが、この場合中年以降に強く現れます。</p>
+		<hr />
 		<h3>外画(対人運)</h3>
 		<p><?php echo $seimei->gaikaku . "画：" . $seimei->reii_description($seimei->gaikaku) .  " (" . $seimei->gaikaku_score . "点)"; ?></p>
-		<p style="color:blue;font-weight:bold;">対人関係および、家族・夫婦関係、友達関係など、外交面をあらわします。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">対人関係および、家族・夫婦関係、友達関係など、外交面をあらわします。</p>
+		<hr />
 		<h3>人画の下一桁(性格)</h3>
 		<p><?php echo $seimei->jinshimo . "画：" . $seimei->seikaku_description() ?></h3>
-		<p style="color:blue;font-weight:bold;">外面から見た性格を現しています。他人から自分がどう見えているのかの参考にしてください。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">外面から見た性格を現しています。他人から自分がどう見えているのかの参考にしてください。</p>
+		<hr />
 		<h3>健康運</h3>
 		<p><?php echo $seimei->kenkou_score(1) . "。三才の配置：" . $seimei->kenkou_description(); ?></p>
-		<p style="color:blue;font-weight:bold;">健康運は三才の配置により決定します。吉数揃いの姓名も、健康に恵まれなければ活かされません。他の画数と合わせて判断してください。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">健康運は三才の配置により決定します。吉数揃いの姓名も、健康に恵まれなければ活かされません。他の画数と合わせて判断してください。</p>
+		<hr />
 		<h3>天画(若年期の基礎運)</h3>
 		<p><?php echo $seimei->tenkaku . "画：" . $seimei->reii_description($seimei->tenkaku) .  " (" . $seimei->tenkaku_score . "点)"; ?></p>
-		<p style="color:blue;font-weight:bold;">幼少年期の運勢を支配し、青年期まで強くあらわれます。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">幼少年期の運勢を支配し、青年期まで強くあらわれます。</p>
+		<hr />
 		<h3>総画(晩年運)</h3>
 		<p><?php echo $seimei->soukaku . "画：" . $seimei->reii_description($seimei->soukaku) .  " (" . $seimei->soukaku_score . "点)"; ?></p>
-		<p style="color:blue;font-weight:bold;">50歳前後からの運勢を支配します。ただし、基礎運の影響も残ります。</span><br>
+		<p style="color:blue;font-weight:bold;font-size:small;">50歳前後からの運勢を支配します。ただし、基礎運の影響も残ります。</span><br>
+		<hr />
 		<h2>命名・改名アドバイザー</h2>
 		<div data-role="collapsible" data-collapsed="true">
 			<h3>男子（男性）の場合</h3>
@@ -191,7 +198,7 @@ function seimeiBody($seimei) {
 
 function seimeiWebForm() {
 ?>
-<div data-role="page" id="top" data-theme="a">
+<div data-role="page" id="top">
 	<div data-role="header">
 		<h1>暮らしの姓名判断 <span class="ui-mini"></h1>
 		<a href="#top" data-icon="home" class='ui-disabled'>ホーム</a>
@@ -234,7 +241,7 @@ function seimeiWebForm() {
 </div>
 
 <!-- 改名について -->
-<div data-role="page" id="kaimei" data-theme="a">
+<div data-role="page" id="kaimei">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>
@@ -257,7 +264,7 @@ function seimeiWebForm() {
 </div>
 
 <!-- 説明 -->
-<div data-role="page" id="setsumei" data-theme="a">
+<div data-role="page" id="setsumei">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>
@@ -283,7 +290,7 @@ function seimeiWebForm() {
 </div>
 
 <!-- 問い合わせフォーム -->
-<div data-role="page" id="query" data-theme="a">
+<div data-role="page" id="query">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>
@@ -310,7 +317,7 @@ function seimeiWebForm() {
 function errorKanji($kanji) {
 ?>
 <!-- エラー漢字 -->
-<div data-role="page" id="query" data-theme="a">
+<div data-role="page" id="query">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>

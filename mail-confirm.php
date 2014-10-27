@@ -12,24 +12,10 @@ require 'vendor/autoload.php';
 require 'php/snipets.php';
 
 $authcode = rand(10000, 99999);
+seimeiWebHeader();
 ?>
-<html>
-<head>
-<meta charset="UTF-8">
-<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
-<meta name="description" content="暮らしの姓名判断へようこそ！赤ちゃんの名まえをつけたり（選名）、じぶんの運勢をうらなったり、どしどし使ってね！">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>あじあ姓名うらない</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-	<link rel="stylesheet" href="css/default.css" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-	<script type="text/javascript" src="js/okina.js"></script>
-	<?php googleAnalytics() ?>
-	</head>
 <body>
-	<div data-role="page" id="top" data-theme="a">
+	<div data-role="page" id="top">
 		<div data-role="header">
 			<h1>暮らしの姓名判断 <span class="ui-mini"><a href="#mit-lisense">Copyright &copy; 2014 だいぶつ</a></span></h1>
 			<a href="/#top" data-icon="home" data-ajax="false">ホーム</a>
@@ -61,7 +47,7 @@ $authcode = rand(10000, 99999);
 
 </html>
 <?php
-$sendgrid = new SendGrid('app26677709@heroku.com', 'xec1eqoo');
+$sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'), getenv('SENDGRID_PASSWORD'));
 $message = new SendGrid\Email();
 $message->
 	addTo($_POST['email'])->
