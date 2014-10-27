@@ -233,7 +233,8 @@ function seimeiWebForm() {
 		<?php ninjaTools(); ?>
 		<a href="#setsumei" data-role="button">暮らしの姓名判断について</a>
 		<a href="#kaimei" data-role="button">改名について</a>
-	</div>
+		<a href="http://fukuoka.kurashi.asia/" data-role="button" target="_blank">福岡の暮らしサイト</a>
+		</div>
 	<div data-role='footer' data-position='fixed'>
 		<?php googleAdsense(); ?>
 	</div>
@@ -274,7 +275,7 @@ function seimeiWebForm() {
 		<p style="font-weight:bold;line-height:180%;">
 			姓名判断の方式はすでに確立されています。したがって、それに基づいてよい名前を考えるなどというのはとても簡単なことなのです。<br>
 			多くの姓名判断家が、そのノウハウを秘匿にし、高額な報酬を目当てに命名サービスを行っている現状を、だいぶつは憂えています。<br>
-			こんな、本来タダであるべき命名サービスに高い金を払う必要はありません！。<br><br>
+			<span style="color:red">こんな、本来タダであるべき命名サービスに高い金を払う必要はありません！</span><br><br>
 			だいぶつは「<a href="http://keishinsya.jp/" target="_blank">山本式姓名判断</a>」のサイト構築・監修を行った経験から、そのノウハウを知り尽くしています。<br>
 			最初、山本翁は無料の姓名判断サービスを立ち上げるといっていましたので、私はそれに乗りました。サービスの立ち上げからプログラムの作成まで、すべて無料で手伝いました。時には、間違いだらけだった彼の作成したファイルを膨大な手間をかけて検証・修正までしました。<br>
 			私の助力なくして「<a href="http://keishinsya.jp/" target="_blank">山本式姓名判断</a>」サイトは存在しなかったでしょう。<br>
