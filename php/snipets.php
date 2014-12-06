@@ -18,7 +18,7 @@ function googleAnalytics() {
 function googleAdsense() {
 ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- あじあ姓名うらない -->
+<!-- 暮らしの姓名判断 -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:320px;height:100px"
      data-ad-client="ca-pub-0413343113584981"
@@ -91,7 +91,7 @@ function seimeiWebHeader() {
 function seimeiBody($seimei) {
 	$meimei = $seimei->meimei();
 ?>
-<div data-role="page" id="kantei" data-theme="a">
+<div data-role="page" id="kantei">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>
@@ -128,24 +128,31 @@ function seimeiBody($seimei) {
 			"&d=" . ($seimei->soukaku_score * 0.5 + $seimei->jinkaku_score * 0.5) . 
 			"&e=" . $seimei->grand_score(); ?>">
 		</div>
+		<hr />
 		<h3>人画(基礎運)</h3>
 		<p><?php echo $seimei->jinkaku . "画：" . $seimei->reii_description($seimei->jinkaku) .  " (" . $seimei->jinkaku_score . "点)"; ?></p>
-		<p style="color:blue;font-weight:bold;">一生の運勢を司ります。結婚により姓が変わると基礎運も変化しますが、この場合中年以降に強く現れます。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">一生の運勢を司ります。結婚により姓が変わると基礎運も変化しますが、この場合中年以降に強く現れます。</p>
+		<hr />
 		<h3>外画(対人運)</h3>
 		<p><?php echo $seimei->gaikaku . "画：" . $seimei->reii_description($seimei->gaikaku) .  " (" . $seimei->gaikaku_score . "点)"; ?></p>
-		<p style="color:blue;font-weight:bold;">対人関係および、家族・夫婦関係、友達関係など、外交面をあらわします。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">対人関係および、家族・夫婦関係、友達関係など、外交面をあらわします。</p>
+		<hr />
 		<h3>人画の下一桁(性格)</h3>
 		<p><?php echo $seimei->jinshimo . "画：" . $seimei->seikaku_description() ?></h3>
-		<p style="color:blue;font-weight:bold;">外面から見た性格を現しています。他人から自分がどう見えているのかの参考にしてください。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">外面から見た性格を現しています。他人から自分がどう見えているのかの参考にしてください。</p>
+		<hr />
 		<h3>健康運</h3>
 		<p><?php echo $seimei->kenkou_score(1) . "。三才の配置：" . $seimei->kenkou_description(); ?></p>
-		<p style="color:blue;font-weight:bold;">健康運は三才の配置により決定します。吉数揃いの姓名も、健康に恵まれなければ活かされません。他の画数と合わせて判断してください。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">健康運は三才の配置により決定します。吉数揃いの姓名も、健康に恵まれなければ活かされません。他の画数と合わせて判断してください。</p>
+		<hr />
 		<h3>天画(若年期の基礎運)</h3>
 		<p><?php echo $seimei->tenkaku . "画：" . $seimei->reii_description($seimei->tenkaku) .  " (" . $seimei->tenkaku_score . "点)"; ?></p>
-		<p style="color:blue;font-weight:bold;">幼少年期の運勢を支配し、青年期まで強くあらわれます。</p>
+		<p style="color:blue;font-weight:bold;font-size:small;">幼少年期の運勢を支配し、青年期まで強くあらわれます。</p>
+		<hr />
 		<h3>総画(晩年運)</h3>
 		<p><?php echo $seimei->soukaku . "画：" . $seimei->reii_description($seimei->soukaku) .  " (" . $seimei->soukaku_score . "点)"; ?></p>
-		<p style="color:blue;font-weight:bold;">50歳前後からの運勢を支配します。ただし、基礎運の影響も残ります。</span><br>
+		<p style="color:blue;font-weight:bold;font-size:small;">50歳前後からの運勢を支配します。ただし、基礎運の影響も残ります。</span><br>
+		<hr />
 		<h2>命名・改名アドバイザー</h2>
 		<div data-role="collapsible" data-collapsed="true">
 			<h3>男子（男性）の場合</h3>
@@ -191,7 +198,7 @@ function seimeiBody($seimei) {
 
 function seimeiWebForm() {
 ?>
-<div data-role="page" id="top" data-theme="a">
+<div data-role="page" id="top">
 	<div data-role="header">
 		<h1>暮らしの姓名判断 <span class="ui-mini"></h1>
 		<a href="#top" data-icon="home" class='ui-disabled'>ホーム</a>
@@ -200,6 +207,7 @@ function seimeiWebForm() {
 	<div data-role="content">
 		<?php fbLike(); ?>
 		<p>山本式姓名判断のノウハウを研究し尽くしただいぶつが、無料で姓名判断・選名アドバイスを行います。</p>
+		<p>※ 名前は、日本語で入力してください。アルファベットや数字は使えません。外国姓・名の方はカタカナで入力してください。</p>
 		<form method="POST" data-ajax="false" action="./">
 			<div data-role="fieldcontain">
 				<label for="sei">苗字 (Last Name)</label>
@@ -222,19 +230,19 @@ function seimeiWebForm() {
 			</div>
 			<input type="submit" value="姓名判断" data-role="button" />
 		</form>
-		<p><a href="#mit-lisense">Copyright &copy; 2014 だいぶつ</a></p>
 		<h2>気に入ったらシェアをお願いします！</h2>
 		<?php ninjaTools(); ?>
 		<a href="#setsumei" data-role="button">暮らしの姓名判断について</a>
 		<a href="#kaimei" data-role="button">改名について</a>
-	</div>
+		<a href="http://fukuoka.kurashi.asia/" data-role="button" target="_blank">福岡の暮らしサイト</a>
+		</div>
 	<div data-role='footer' data-position='fixed'>
 		<?php googleAdsense(); ?>
 	</div>
 </div>
 
 <!-- 改名について -->
-<div data-role="page" id="kaimei" data-theme="a">
+<div data-role="page" id="kaimei">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>
@@ -257,7 +265,7 @@ function seimeiWebForm() {
 </div>
 
 <!-- 説明 -->
-<div data-role="page" id="setsumei" data-theme="a">
+<div data-role="page" id="setsumei">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>
@@ -265,8 +273,20 @@ function seimeiWebForm() {
 	</div>
 	<div data-role='content'>
 		<h2>暮らしの姓名判断について</h2>
-		<p style="font-weight:bold;line-height:180%;">
-			<span style="color:red">姓名（名まえ）から運勢なんてわかるものなんでしょうか？</span>同姓同名で違う人生をたどる人がいっぱいいるのだから、もちろんそんなことはありえません。だけど、運命が完全に導き出されるわけではないにしろ、名まえが運勢に影響を与えると言う現象はしばしば見られます。<br>
+		<p style="line-height:180%;">
+			姓名判断の方式はすでに確立されています。したがって、それに基づいてよい名前を考えるなどというのはとても簡単なことなのです。<br>
+			多くの姓名判断家が、そのノウハウを秘匿にし、高額な報酬を目当てに命名サービスを行っている現状を、だいぶつは憂えています。<br>
+			<span style="font-weight:bold;color:red;">こんな、本来タダであるべき命名サービスに高い金を払う必要はありません！</span><br><br>
+			だいぶつは「<a href="http://www.keishinsya.jp/okina/" target="_blank">山本式姓名判断</a>」のサイト構築・監修を行った経験から、そのノウハウを知り尽くしています。<br>
+			最初、山本翁は無料の姓名判断サービスを立ち上げるといっていましたので、私はそれに乗りました。サービスの立ち上げからプログラムの作成まで、すべて無料で手伝いました。時には、間違いだらけだった彼の作成したファイルを膨大な手間をかけて検証・修正までしました。<br>
+			私の助力なくして「<a href="http://www.keishinsya.jp/okina/" target="_blank">山本式姓名判断</a>」サイトは存在しなかったでしょう。<br>
+			しかし、いつの間にか彼は高額な命名料を目当てにサービスを行うようになっていました。<br>
+			そして、そのことを苦々しく思い指摘すると山本翁は「お金を請求しなかったお前が悪い」と開き直りました。<br>
+			<span style="font-weight:bold;">私はお金が欲しいのではないのです。皆に無料で姓名判断のメリットを享受してもらいたいのです。だからこそ無償で手伝ってあげたのです。</span><br><br>
+			無償で姓名判断を皆に享受してもらうため、<a href="www.seimei.asia" target="_blank">あじあ姓名うらない</a>という名前でサービスを運用していたのですが(運用費は完全に個人持ちで、完全無料。ごくわずかな運用費を捻出するために広告を貼っています)、彼は<a href="https://www.chillingeffects.org/notices/2046981#" target="_blank">DMCAの制度を悪用し</a>、検索インデックスから削除させました。<br>
+			これが、かつて無料でシステム構築を手伝ってくれた恩人に対する態度でしょうか？<br>
+			「山本哲生」氏の著書の文言を引用していたのが著作権侵害だとの主張でしたので、この姓名判断からは文言は削除しています。<br><br>
+			さて、<span style="color:red">姓名（名まえ）から運勢なんてわかるものなんでしょうか？</span>同姓同名で違う人生をたどる人がいっぱいいるのだから、もちろんそんなことはありえません。だけど、運命が完全に導き出されるわけではないにしろ、名まえが運勢に影響を与えると言う現象はしばしば見られます。<br>
 			たとえば人の名前を聞いたときに「雰囲気どおりの名まえだ」と感じることはありませんか？<br>
 			つまり、名まえは運命を決定付けるものではないにしろ、何らかの影響力を持っているものだと考えてもいいんじゃないでしょうか？<br>
 			そして、運勢の傾向を事前に知っておけば、対策を立てることも容易になります。山にハイキングに出かけ、何も知らずに突然スズメバチの巣に出くわすのと、向こうから来た人に「もうすぐスズメバチの巣があるよ」と教えてもらうのと、どちらが良いでしょうか？<br>
@@ -283,7 +303,7 @@ function seimeiWebForm() {
 </div>
 
 <!-- 問い合わせフォーム -->
-<div data-role="page" id="query" data-theme="a">
+<div data-role="page" id="query">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>
@@ -310,7 +330,7 @@ function seimeiWebForm() {
 function errorKanji($kanji) {
 ?>
 <!-- エラー漢字 -->
-<div data-role="page" id="query" data-theme="a">
+<div data-role="page" id="query">
 	<div data-role="header">
 		<h1>暮らしの姓名判断</h1>
 		<a href="#top" data-icon="home">ホーム</a>

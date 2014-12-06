@@ -1,6 +1,9 @@
 @CHARSET "UTF-8";
 .ui-page {
-    background: transparent url(image/pattern8-pattern-76c.png);
+    background: transparent url(image/pattern-a35q.png);
+	font-family:'Lucida Grande',
+	 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+	 Meiryo, メイリオ, sans-serif;
 }
 
 table {
@@ -24,7 +27,7 @@ table th {
   box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 table th:first-child {
-  border-radius: 5px 0 0 0;	
+  border-radius: 5px 0 0 0;
 }
 table th:last-child {
   border-radius:0 5px 0 0;
