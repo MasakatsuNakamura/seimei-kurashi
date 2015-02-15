@@ -5,7 +5,7 @@ This README would normally document whatever steps are necessary to get your app
 ### What is this repository for? ###
 
 * Quick summary
-あじあ姓名うらない
+暮らしの姓名判断
 Copyright だいぶつ
 姓名・性別を元に、最適な赤ちゃんの命名案を表示する。
 合わせて、簡単な運勢も表示する。
