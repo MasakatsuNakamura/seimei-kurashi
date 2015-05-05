@@ -1,7 +1,7 @@
 <?php
-if ($_SERVER["SERVER_NAME"] == "seimei-asia.herokuapp.com") {
+if ($_SERVER["SERVER_NAME"] == "seimei-asia.herokuapp.com" || $_SERVER["SERVER_NAME"] == "seimei.kurashi.asia") {
 	header("HTTP/1.1 301 Moved Permanently");
-	header("Location: http://seimei.kurashi.asia" . $_SERVER[REQUEST_URI]);
+	header("Location: http://www.seimei.asia" . $_SERVER[REQUEST_URI]);
 } else {
 	header('Content-type: text/html; charset=utf-8;');
 }
